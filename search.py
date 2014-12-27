@@ -15,10 +15,15 @@ def search_google(term, result=0):
 def search_duckduckgo(term, result=0):
     search_result = requests.get('https://duckduckgo.com/html/?q=' + urllib.quote_plus(term))
     soup = BeautifulSoup(search_result.content)
-   
-    # Skip ads. Sorry DDG.
-    ad_offset = 2
-    link = soup.findAll('a', rel='nofollow')[ad_offset + result]
-    link_url = link['href']
+  
+    # Skip the ads. Sorry DDG.
+    # There is probably a better way to do this using a better selector rather than looping. TODO.
+    divs = soup.findAll('div', 'results_links')
+    for div in divs:
+        if 'web-result-sponsored' in div['class']:
+            divs.remove(div)
+
+    link = divs[result]
+    link_url = link.findAll('a')[0]['href']
 
     return link_url
