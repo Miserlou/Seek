@@ -7,7 +7,7 @@ Seek is a sister to [howdoi](https://github.com/gleitz/howdoi/) and [Glance](htt
 
 ## Installation
 
-    pip install seek -g
+    pip install seek
 
 ## Examples
 
