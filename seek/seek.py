@@ -1,6 +1,5 @@
 #! /usr/bin/env python
 
-from clint import arguments
 import requests
 import urllib
 import argparse
@@ -20,6 +19,18 @@ def get_page_data(url):
         print data['error']
         quit()
 
+    return data
+
+def extract_data(url):
+    from goose import Goose
+    g = Goose()
+    article = g.extract(url)
+
+    data = {} 
+    data['title'] = article.title
+    data['url'] = article.canonical_link
+    data['text'] = article.cleaned_text
+    
     return data
 
 def print_body(data):
@@ -59,7 +70,8 @@ def command_line_runner():
 def seek(args):
     term = ' '.join(args['query']).replace('?', '') 
     link_url = search_engine(term, args['pos'])
-    data = get_page_data(link_url)
+    #data = get_page_data(link_url)
+    data = extract_data(link_url)
     if args['glancemode']:
         glance_body(data, args['speed'])
     else:
