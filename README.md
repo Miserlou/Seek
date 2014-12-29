@@ -2,6 +2,8 @@
 
 Command line searching for incredibly lazy people.
 
+Seek is a sister to [howdoi](https://github.com/gleitz/howdoi/) and [Glance](https://github.com/Miserlou/glance/).
+
 ## Installation
 
     pip install seek -g
@@ -20,7 +22,7 @@ There are a few optional arguments.
 
     -g 800 --glance 800     Glance mode, 800 WPM (default 500).
     -p --plain              Plaintext mode.
-    -n 3 --number 3         Search result number '3' (default 1).
+    -p 3 --pos3             Search result position '3' (default 1).
 
 ## Features:
 
