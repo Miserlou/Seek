@@ -24,7 +24,7 @@ Seek is a sister to [howdoi](https://github.com/gleitz/howdoi/) and [Glance](htt
 
 ## Features:
 
-* [Glance](http://glance.wtf) mode!
+* [Glance](http://glance.wtf) mode! Powered by [pyglance](http://github.com/Miserlou/pyglance).
 * Diffbot article extraction
 * Searches DuckDuckGo, Google coming soon (maybe).
 

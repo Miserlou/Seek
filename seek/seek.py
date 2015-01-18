@@ -66,4 +66,10 @@ def seek(args):
         print_body(data)
 
 if __name__ == '__main__':
-    command_line_runner()
+    try:
+        command_line_runner()
+    except (KeyboardInterrupt, SystemExit):
+        print "" 
+        quit()
+    except Exception, e:
+        quit()
