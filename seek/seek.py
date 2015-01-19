@@ -54,7 +54,13 @@ def command_line_runner():
         parser.print_help()
         return
     else:
-        seek(args)
+        try:
+            seek(args)
+        except (KeyboardInterrupt, SystemExit):
+            print "" 
+            quit()
+        except Exception, e:
+            quit()
 
 def seek(args):
     term = ' '.join(args['query']).replace('?', '') 
