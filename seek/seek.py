@@ -1,26 +1,11 @@
 #! /usr/bin/env python
 
-from clint import arguments
 import requests
 import urllib
 import argparse
 
-from pyglance import glance
+from pyglance import glance, get_page_data
 from search import search_engine
-
-# Really shouldn't do this.
-DIFFBOT_API_TOKEN = '2efef432c72b5a923408e04353c39a7c'
-
-def get_page_data(url):
-    diffbot_url = 'http://api.diffbot.com/v2/article?url=' + urllib.quote_plus(url) + "&token=" + DIFFBOT_API_TOKEN
-    page = requests.get(diffbot_url)
-    data = page.json()
-
-    if 'error' in data:
-        print data['error']
-        quit()
-
-    return data
 
 def print_body(data):
     
